@@ -6,7 +6,7 @@ base: ubuntu@24.04
 license: Apache-2.0
 services:
   nginx-prometheus-exporter:
-    command: nginx-promx
+    command: nginx-prometheus-exporter
     override: replace
     startup: enabled
 platforms:
@@ -28,11 +28,9 @@ parts:
       - make
     override-build: |
       make nginx-prometheus-exporter
-      # we shorten the name to nginx-promx to work around an issue with goss truncating the 
-      # process name to 15 characters in its 'process is running' test
-      install -D -m755 nginx-prometheus-exporter ${CRAFT_PART_INSTALL}/bin/nginx-promx
+      install -D -m755 nginx-prometheus-exporter ${CRAFT_PART_INSTALL}/bin/nginx-prometheus-exporter
     stage:
-      - bin/nginx-promx
+      - bin/nginx-prometheus-exporter
 
   ca-certs:
     plugin: nil

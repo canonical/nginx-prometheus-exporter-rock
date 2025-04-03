@@ -1,5 +1,6 @@
 process:
-  nginx-promx:
+  # this can be at most 15 chars
+  nginx-prometheu:
     running: true
 http:
   ready:
