@@ -1,0 +1,48 @@
+name: nginx-prometheus-exporter
+summary: Petrified nginx-prometheus-exporter.
+description: "Nginx prometheus exporter."
+version: "1.4.1"
+base: ubuntu@24.04
+license: Apache-2.0
+services:
+  nginx-prometheus-exporter:
+    command: nginx-promx
+    override: replace
+    startup: enabled
+platforms:
+  amd64:
+parts:
+  nginx-prometheus-exporter:
+    plugin: go
+    source: https://github.com/nginx/nginx-prometheus-exporter
+    source-type: git
+    source-tag: "v1.4.1"
+    source-depth: 1
+    build-snaps:
+      - go/1.24/stable
+    build-environment:
+      - BUILD_IN_CONTAINER: "false"
+      - NODE_OPTIONS: "--max-old-space-size=8192"
+
+    build-packages:
+      - make
+    override-build: |
+      make nginx-prometheus-exporter
+      # we shorten the name to nginx-promx to work around an issue with goss truncating the 
+      # process name to 15 characters in its 'process is running' test
+      install -D -m755 nginx-prometheus-exporter ${CRAFT_PART_INSTALL}/bin/nginx-promx
+    stage:
+      - bin/nginx-promx
+
+  ca-certs:
+    plugin: nil
+    overlay-packages: [ca-certificates]
+  deb-security-manifest:
+    plugin: nil
+    after:
+      - nginx-prometheus-exporter
+      - ca-certs
+    override-prime: |
+      set -x
+      mkdir -p $CRAFT_PRIME/usr/share/rocks/
+      (echo "# os-release" && cat /etc/os-release && echo "# dpkg-query" && dpkg-query --admindir=$CRAFT_PRIME/var/lib/dpkg/ -f '${db:Status-Abbrev},${binary:Package},${Version},${source:Package},${Source:Version}\n' -W) > $CRAFT_PRIME/usr/share/rocks/dpkg.query
