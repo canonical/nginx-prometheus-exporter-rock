@@ -1,8 +1,8 @@
 # nginx-prometheus-exporter-rock
 
-[![Open a PR to OCI Factory](https://github.com/canonical/nginx-prometheus-exporter-rock/actions/workflows/rock-release-oci-factory.yaml/badge.svg)](https://github.com/canonical/nginx-prometheus-exporter-rock/actions/workflows/rock-release-oci-factory.yaml)
-[![Publish to GHCR:dev](https://github.com/canonical/nginx-prometheus-exporter-rock/actions/workflows/rock-release-dev.yaml/badge.svg)](https://github.com/canonical/nginx-prometheus-exporter-rock/actions/workflows/rock-release-dev.yaml)
-[![Update Rock](https://github.com/canonical/nginx-prometheus-exporter-rock/actions/workflows/rock-update.yaml/badge.svg)](https://github.com/canonical/nginx-prometheus-exporter-rock/actions/workflows/rock-update.yaml)
+[![Open a PR to OCI Factory](https://github.com/canonical/nginx-prometheus-exporter-rock/actions/workflows/release-oci-factory.yaml/badge.svg)](https://github.com/canonical/nginx-prometheus-exporter-rock/actions/workflows/release-oci-factory.yaml)
+[![Publish to GHCR:dev](https://github.com/canonical/nginx-prometheus-exporter-rock/actions/workflows/release-dev.yaml/badge.svg)](https://github.com/canonical/nginx-prometheus-exporter-rock/actions/workflows/release-dev.yaml)
+[![Update Rock](https://github.com/canonical/nginx-prometheus-exporter-rock/actions/workflows/update.yaml/badge.svg)](https://github.com/canonical/nginx-prometheus-exporter-rock/actions/workflows/update.yaml)
 
 [Rocks](https://canonical-rockcraft.readthedocs-hosted.com/en/latest/) for [Nginx Prometheus-exporter](https://github.com/nginx/nginx-prometheus-exporter).  
 This repository holds all the necessary files to build rocks for the upstream versions we support. The Nginx prometheus-exporter rock is used by several observability charms including:
