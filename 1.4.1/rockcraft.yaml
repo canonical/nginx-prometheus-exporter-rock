@@ -25,9 +25,9 @@ parts:
       - make
     override-build: |
       make nginx-prometheus-exporter
-      install -D -m755 nginx-prometheus-exporter ${CRAFT_PART_INSTALL}/bin/nginx-prometheus-exporter
+      install -D -m755 nginx-prometheus-exporter ${CRAFT_PART_INSTALL}/usr/bin/nginx-prometheus-exporter
     stage:
-      - bin/nginx-prometheus-exporter
+      - usr/bin/nginx-prometheus-exporter
 
   ca-certs:
     plugin: nil
