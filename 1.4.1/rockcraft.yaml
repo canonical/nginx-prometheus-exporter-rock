@@ -2,7 +2,7 @@ name: nginx-prometheus-exporter
 summary: Petrified nginx-prometheus-exporter.
 description: "Nginx prometheus exporter."
 version: "1.4.1"
-base: ubuntu@24.04
+base: ubuntu@26.04
 license: Apache-2.0
 services:
   nginx-prometheus-exporter:
