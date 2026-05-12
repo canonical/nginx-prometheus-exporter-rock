@@ -2,7 +2,7 @@ name: nginx-prometheus-exporter
 summary: Petrified nginx-prometheus-exporter.
 description: "Nginx prometheus exporter."
 version: "1.4.1"
-base: ubuntu@24.04
+base: ubuntu@26.04
 license: Apache-2.0
 services:
   nginx-prometheus-exporter:
@@ -25,9 +25,9 @@ parts:
       - make
     override-build: |
       make nginx-prometheus-exporter
-      install -D -m755 nginx-prometheus-exporter ${CRAFT_PART_INSTALL}/bin/nginx-prometheus-exporter
+      install -D -m755 nginx-prometheus-exporter ${CRAFT_PART_INSTALL}/usr/bin/nginx-prometheus-exporter
     stage:
-      - bin/nginx-prometheus-exporter
+      - usr/bin/nginx-prometheus-exporter
 
   ca-certs:
     plugin: nil
