@@ -2,7 +2,7 @@ set allow-duplicate-recipes
 set allow-duplicate-variables
 import? 'rocks.just'
 
-lts_releases := '{"1.5": "2031-05-01"}'
+source_repo := 'nginx/nginx-prometheus-exporter'
 
 [private]
 @default:
